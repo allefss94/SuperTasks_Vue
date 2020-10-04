@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import axios from 'axios';
-axios.defaults.baseURL = 'http://localhost:3030/';
+axios.defaults.baseURL = 'http://15.228.59.112:3030/';
 Vue.use(Vuex);
 
 export default new Vuex.Store({
