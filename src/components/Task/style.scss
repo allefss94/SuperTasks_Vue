@@ -1,0 +1,20 @@
+.buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 0;
+}
+.card-header {
+  font-weight: bold;
+}
+.card {
+  min-height: 250px;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.1s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0.5;
+}

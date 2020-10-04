@@ -1,0 +1,29 @@
+.flex {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: url('../../assets/homebackground.svg');
+  background-size: cover;
+  h1 {
+    font-family: 'Russo One', sans-serif;
+    font-size: 55px;
+    text-shadow: 1px 1px 3px rgb(66, 66, 66);
+  }
+  h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-size: 30px;
+    margin-top: 15px;
+  }
+}
+.button {
+  display: flex;
+  flex-direction: row;
+  margin-top: 60px;
+  a {
+    font-size: 20px;
+    min-width: 150px;
+  }
+}
