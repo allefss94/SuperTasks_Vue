@@ -5,6 +5,7 @@ import store from './store';
 import '@babel/polyfill';
 import 'mutationobserver-shim';
 import './plugins/bootstrap-vue';
+import './registerServiceWorker'
 
 Vue.config.productionTip = false;
 
