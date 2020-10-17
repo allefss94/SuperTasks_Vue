@@ -67,7 +67,6 @@ export default new Vuex.Store({
     addTask: async ({ commit }, payload) =>
       await axios.post('task', payload).then((res) => {
         commit('setTasks', res.data) 
-        
       }),
   },
 });
