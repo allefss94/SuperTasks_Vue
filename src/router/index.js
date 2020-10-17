@@ -30,7 +30,10 @@ const routes = [
     component: () => import('@/views/Dashboard'),
     children: [
       { path: '', component: () => import('@/components/AllTasks') },
-      { path: 'novatarefa', component: () => import('@/components/NewTask') },
+      {
+        path: 'novatarefa',
+        component: () => import('@/components/NewTask'),
+      },
       {
         path: 'pendentes',
         component: () => import('@/components/PendingTasks'),

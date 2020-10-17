@@ -1,11 +1,7 @@
 <template>
-  <b-container class="login" fluid>
-    <b-row class="justify-content-center h-100 align-items-center">
-      <b-col cols="10" md="8" lg="5">
-        <Form :form="form" />
-      </b-col>
-    </b-row>
-  </b-container>
+  <div class="login" fluid>
+    <Form :form="form" />
+  </div>
 </template>
 
 <script>

@@ -1,13 +1,16 @@
 <template>
-  <div class="tasks text-center mb-5 justify-content-center">
-    <h1 class="my-5">Tarefas Concluídas</h1>
-    <Task :tasks="getFinishedTasks" class="justify-content-start" />
+  <div class="tasks">
+    <h1>Tarefas Concluídas</h1>
+    <div class="grid">
+      <Task v-for="task in getFinishedTasks" :key="task.id" :task="task" />
+    </div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
 export default {
+  name: "FinishedTasks",
   components: {
     Task: () => import("@/components/Task"),
   },
@@ -16,3 +19,6 @@ export default {
   },
 };
 </script>
+
+
+<style src="./style.scss" lang="scss" scoped/>

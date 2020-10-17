@@ -1,35 +1,39 @@
 <template>
-  <div class="form-task">
-    <b-row class="my-4 justify-content-center">
-      <b-col cols="12" md="8" lg="6">
-        <b-form @submit.prevent="submit(newTask)" class="form">
-          <h1 class="display-4 text-center my-4">Nova Tarefa</h1>
-          <b-form-group label="Titulo:">
-            <b-form-input
-              v-model="newTask.title"
-              placeholder="Minha Super Tarefa"
-            />
-          </b-form-group>
-          <b-form-group label="Descrição:">
-            <b-form-textarea
-              rows="3"
-              max-rows="6"
-              v-model="newTask.description"
-              placeholder="Algo incrível que vou fazer."
-            />
-          </b-form-group>
-
-          <b-button type="submit" variant="light" class="mt-2"
-            >Adicionar Tarefa</b-button
-          >
-        </b-form>
-      </b-col>
-    </b-row>
+  <div class="container">
+    <form @submit.prevent="submit(newTask)" class="form-task">
+      <h1>Adicione sua Tarefa</h1>
+      <div class="input-group">
+        <span for="title">Titulo:</span>
+        <input
+          type="text"
+          name="title"
+          v-model="newTask.title"
+          placeholder="Minha tarefa incrível"
+        />
+      </div>
+      <div class="input-group">
+        <span for="description">Descrição:</span>
+        <textarea
+          name="description"
+          cols="30"
+          rows="5"
+          v-model="newTask.description"
+          placeholder="Descreva aqui sua tarefa"
+        ></textarea>
+      </div>
+      <div class="buttons">
+        <button type="submit"><v-icon name="plus-circle" />cadastrar</button>
+        <button type="button" @click="reset">
+          <v-icon name="eraser" />limpar
+        </button>
+      </div>
+    </form>
   </div>
 </template>
 
 <script>
 export default {
+  name: "NewTask",
   data() {
     return {
       newTask: {
@@ -43,18 +47,23 @@ export default {
   computed: {},
   methods: {
     submit(task) {
-      this.$store
-        .dispatch("addTask", task)
-
-        .then(
-          this.$router.push("/dashboard"),
-          (this.newTask = {
-            title: "",
-            description: "",
-            owner: this.$store.state.user,
-            finished: false,
-          })
-        );
+      this.$store.dispatch("addTask", task).then(
+        this.$router.push("/dashboard"),
+        (this.newTask = {
+          title: "",
+          description: "",
+          owner: this.$store.state.user,
+          finished: false,
+        })
+      );
+    },
+    reset() {
+      this.newTask = {
+        title: "",
+        description: "",
+        owner: this.$store.state.user,
+        finished: false,
+      };
     },
   },
 };

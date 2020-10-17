@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import axios from 'axios';
-axios.defaults.baseURL = 'http://localhost:3030/';
+axios.defaults.baseURL = 'http://localhost:3030';
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -41,6 +41,7 @@ export default new Vuex.Store({
   actions: {
     login: async ({ commit }, payload) => {
       const { data } = await axios.post('tasks', payload);
+     
       for (const key in data) {
         commit('setTasks', data[key]);
       }
@@ -64,6 +65,9 @@ export default new Vuex.Store({
         .then(() => commit('removeTask', payload)),
 
     addTask: async ({ commit }, payload) =>
-      await axios.post('task', payload).then(() => commit('setTasks', payload)),
+      await axios.post('task', payload).then((res) => {
+        commit('setTasks', res.data) 
+        
+      }),
   },
 });

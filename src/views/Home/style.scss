@@ -6,8 +6,11 @@
   align-items: center;
   background: url('../../assets/homebackground.svg');
   background-size: cover;
+  color: white;
+  text-align: center;
   h1 {
     font-family: 'Russo One', sans-serif;
+    letter-spacing: 1px;
     font-size: 55px;
     text-shadow: 1px 1px 3px rgb(66, 66, 66);
   }
@@ -15,15 +18,35 @@
     font-family: 'Roboto', sans-serif;
     font-weight: 100;
     font-size: 30px;
-    margin-top: 15px;
+    margin-top: 10px;
+  }
+
+  .buttons {
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 60px;
+    button {
+      font-size: 20px;
+      min-width: 150px;
+      padding: 8px;
+      color: white;
+      background: none;
+      border: 1px solid white;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: all 0.2s;
+      &:hover {
+        background: #fff;
+        color: black;
+      }
+    }
   }
 }
-.button {
-  display: flex;
-  flex-direction: row;
-  margin-top: 60px;
-  a {
-    font-size: 20px;
-    min-width: 150px;
+
+@media (min-width: 800px) {
+  .flex .buttons {
+    width: 50vw;
   }
 }

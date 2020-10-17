@@ -1,0 +1,62 @@
+.app {
+  height: 100%;
+  background: #333;
+}
+
+/* navbar */
+.navbar {
+  padding: 0.6rem 1.6rem;
+  background: #eee;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media screen and (max-width: 600px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .brand span {
+    font-size: 1.6rem;
+    font-family: 'Russo one';
+    cursor: pointer;
+
+    @media screen and(max-width: 600px) {
+      font-size: 2rem;
+    }
+  }
+
+  ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    .router-link-exact-active {
+      color: #777;
+    }
+    li {
+      padding: 0.1rem 0.6rem;
+      cursor: pointer;
+      font-family: 'Futura', sans-serif;
+      font-weight: 400;
+      &:hover {
+        color: #777;
+      }
+      svg {
+        margin: 0 0.1rem;
+      }
+    }
+  }
+}
+/* end navbar */
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.1s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0.5;
+}

@@ -1,47 +1,37 @@
 <template>
-  <b-card
-    bg-variant="dark"
-    class="text-center text-white py-5"
-    :title="form.name"
-  >
-    <b-form @submit.prevent="submit(form.to)">
-      <b-container fluid>
-        <b-row class="justify-content-center mt-5">
-          <b-col cols="12" sm="10">
-            <b-form-input
-              id="user"
-              type="text"
-              required
-              placeholder="Usuário"
-              v-model="formulario.name"
-            />
-          </b-col>
-        </b-row>
-        <b-row class="justify-content-center mt-4">
-          <b-col cols="12" sm="10">
-            <b-form-input
-              id="password"
-              type="password"
-              required
-              placeholder="Senha"
-              v-model="formulario.password"
-            />
-          </b-col>
-        </b-row>
-        <b-row class="justify-content-center mt-5">
-          <b-col cols="12" sm="10">
-            <b-btn type="submit" variant="outline-primary" block dark>{{
-              textButton
-            }}</b-btn>
-          </b-col>
-        </b-row>
-      </b-container>
-    </b-form>
-  </b-card>
+  <div class="container">
+    <form @submit.prevent="submit(form.to)">
+      <h1>{{ form.name }}</h1>
+      <section class="input-group">
+        <v-icon name="user" />
+        <input
+          type="text"
+          name="user"
+          placeholder="Usuário"
+          v-model="formulario.name"
+        />
+      </section>
+      <section class="input-group">
+        <v-icon name="lock" />
+        <input
+          type="password"
+          name="password"
+          placeholder="Senha"
+          v-model="formulario.password"
+        />
+      </section>
+      <div class="buttons">
+        <button>
+          {{ form.name === "Super Task" ? "entrar" : "cadastrar" }}
+        </button>
+      </div>
+    </form>
+  </div>
 </template>
 
 <script>
 export default {
+  name: "Form",
   props: ["form"],
   data: () => ({
     formulario: {
